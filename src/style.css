@@ -15,7 +15,8 @@ main {
   flex-direction: column;
 }
 
-h1 {
+h1,
+label {
   font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -35,6 +36,11 @@ h1 {
 .head {
   justify-content: space-between;
   align-items: center;
+}
+
+input[type='checkbox']:checked + label {
+  color: gray;
+  text-decoration: line-through;
 }
 
 .head button {
@@ -66,6 +72,12 @@ h1 {
   padding: 1rem;
   width: 100%;
   list-style: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemContent {
+  align-items: center;
 }
 
 .wrapper {
@@ -76,6 +88,20 @@ h1 {
 
 .space-right {
   margin-right: 1rem;
+}
+
+.label {
+  width: 85%;
+  display: inline-block;
+}
+
+.fa-ellipsis-v {
+  padding: 0.5rem 1rem;
+  cursor: move;
+}
+
+.dragging {
+  background-color: gray;
 }
 
 #getAdd {
