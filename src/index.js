@@ -41,7 +41,6 @@ const enterBtn = document.getElementById('getAdd');
 enterBtn.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
-    // document.getElementById('myBtn').click();
     showInList();
     Build();
   }
