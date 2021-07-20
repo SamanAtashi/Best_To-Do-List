@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 2px solid red;
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  width: 90%;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.add {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.head {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem;
+  color: gray;
+}
+
+.head button:hover {
+  color: black;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  border: 1px solid rgb(224, 224, 224);
+  padding: 1rem;
+  width: 100%;
+}
+
+.item {
+  border: 0.5px solid rgb(224, 224, 224);
+  padding: 1rem;
+  width: 100%;
+  list-style: none;
+}
+
+.wrapper {
+  width: 50%;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.space-right {
+  margin-right: 1rem;
+}
+
+#getAdd {
+  width: 85%;
+  border: none;
+  font-size: 1rem;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+#getAdd:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#getAdd-btn {
+  width: 15%;
+  border: none;
+  background-color: transparent;
+  color: rgb(199, 199, 199);
+  cursor: pointer;
+}
