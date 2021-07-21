@@ -1,7 +1,9 @@
 import './style.css';
 
 // eslint-disable-next-line import/no-cycle
+import { functions } from 'lodash';
 import { statusUpdate } from './statusUpdate.js';
+import { dragFunction } from './dragDropSort.js';
 
 function buildElementandShow() {
   const getAdd = document.getElementById('getAdd'); // grab input text
@@ -10,6 +12,9 @@ function buildElementandShow() {
   const createLi = document.createElement('li');
   createLi.classList.add('item');
   createLi.classList.add('d-flex');
+
+  // draggable
+  createLi.setAttribute('draggable', 'true');
 
   const createCheckBox = document.createElement('input');
   createCheckBox.type = 'checkbox';
@@ -74,6 +79,7 @@ document.getElementById('getAdd').addEventListener('keyup', (event) => {
     buildElementandShow();
     buildToPush();
     storeLocally();
+    dragFunction();
   }
 });
 
@@ -81,6 +87,7 @@ document.getElementById('getAdd-btn').addEventListener('click', () => {
   buildElementandShow();
   buildToPush();
   storeLocally();
+  dragFunction();
 });
 
 // ONLY when click on checkbox it will update the "completed" value
@@ -91,5 +98,3 @@ document.addEventListener('click', (e) => {
     }
   }
 });
-
-// Drag and Drop
