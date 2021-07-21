@@ -1,7 +1,6 @@
 import './style.css';
 
 // eslint-disable-next-line import/no-cycle
-import { functions } from 'lodash';
 import { statusUpdate } from './statusUpdate.js';
 import { dragFunction } from './dragDropSort.js';
 
