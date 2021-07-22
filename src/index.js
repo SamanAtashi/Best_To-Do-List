@@ -3,8 +3,8 @@ import './style.css';
 // eslint-disable-next-line import/no-cycle
 import { statusUpdate } from './statusUpdate.js';
 import { dragFunction } from './dragDropSort.js';
-// eslint-disable-next-line import/no-cycle
 // eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-cycle
 import { buildToPush } from './CRUD.js';
 
 function buildElementandShow() {
