@@ -8,6 +8,7 @@ body {
   border: 2px solid red;
   height: 100vh;
   width: 100vw;
+  background-color: lightsteelblue;
 }
 
 main {
@@ -36,6 +37,23 @@ label {
 .head {
   justify-content: space-between;
   align-items: center;
+}
+
+.red {
+  background-color: red;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-inherit {
+  display: inherit;
+}
+
+.dynamicDeleteBtn {
+  width: 90%;
+  margin: 1rem;
 }
 
 input[type='checkbox']:checked + label {
@@ -69,7 +87,6 @@ input[type='checkbox']:checked + label {
 
 .item {
   border: 0.5px solid rgb(224, 224, 224);
-  padding: 1rem;
   width: 100%;
   list-style: none;
   justify-content: space-between;
@@ -78,6 +95,8 @@ input[type='checkbox']:checked + label {
 
 .itemContent {
   align-items: center;
+  width: 90%;
+  padding-left: 1rem;
 }
 
 .wrapper {
@@ -91,12 +110,14 @@ input[type='checkbox']:checked + label {
 }
 
 .label {
-  width: 85%;
+  padding: 1rem;
+  width: 100%;
   display: inline-block;
 }
 
-.fa-ellipsis-v {
-  padding: 0.5rem 1rem;
+.fa-ellipsis-v,
+.fa-trash-alt {
+  padding: 1rem 2rem;
   cursor: move;
 }
 
@@ -123,4 +144,18 @@ input[type='checkbox']:checked + label {
   background-color: transparent;
   color: rgb(199, 199, 199);
   cursor: pointer;
+}
+
+#clearAllComp {
+  border: none;
+  font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  background-color: transparent;
+  color: gray;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#clearAllComp:hover {
+  color: red;
 }
