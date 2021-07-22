@@ -11,5 +11,7 @@ export function buildToPush() {
     globalIndex,
   });
 
+  getAdd.value = '';
+
   globalIndex += 1;
 }
