@@ -3,6 +3,9 @@ import './style.css';
 // eslint-disable-next-line import/no-cycle
 import { statusUpdate } from './statusUpdate.js';
 import { dragFunction } from './dragDropSort.js';
+// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/no-unresolved
+import { buildToPush } from './CRUD.js';
 
 function buildElementandShow() {
   const getAdd = document.getElementById('getAdd'); // grab input text
@@ -44,32 +47,16 @@ function buildElementandShow() {
   createLi.appendChild(createDragIcon);
 }
 
-export const list = [];
+// eslint-disable-next-line import/no-mutable-exports
+export let list = [];
 
 // eslint-disable-next-line import/prefer-default-export
 // eslint-disable-next-line import/no-mutable-exports
 export let globalIndex = 1;
 
-function buildToPush() {
-  const getAdd = document.getElementById('getAdd');
-
-  list.push({
-    description: getAdd.value,
-    completed: false,
-    globalIndex,
-  });
-
-  globalIndex += 1;
-}
-
 function storeLocally() {
   const stringifyList = JSON.stringify(list[globalIndex - 2]);
   localStorage.setItem(globalIndex - 1, stringifyList);
-}
-
-export function resultFunction() {
-  const result = list.filter((obj) => obj.globalIndex === globalIndex - 1)[0];
-  return result;
 }
 
 document.getElementById('getAdd').addEventListener('keyup', (event) => {
@@ -95,5 +82,59 @@ document.addEventListener('click', (e) => {
     if (list.length > 0) {
       statusUpdate(e.target);
     }
+  }
+});
+
+function createDeleteBtn() {
+  const createDeleteBtn = document.createElement('input');
+  createDeleteBtn.value = 'Delete';
+  createDeleteBtn.type = 'button';
+  createDeleteBtn.name = 'delBtn';
+  createDeleteBtn.classList.add('dynamicDeleteBtn');
+  return createDeleteBtn;
+}
+
+document.addEventListener('dblclick', (e) => {
+  // only when click on icon
+  if (e.target.classList.value === 'fas fa-ellipsis-v') {
+    const previous = e.target.previousSibling;
+    const parent = e.target.parentElement;
+    const { firstChild } = parent;
+
+    // add redness
+    if (parent.classList.value === 'item d-flex red') {
+      parent.classList.remove('red');
+    } else {
+      parent.classList.add('red');
+    }
+
+    if (parent.classList.value === 'item d-flex red') {
+      firstChild.classList.add('d-none');
+    } else {
+      firstChild.classList.remove('d-none');
+    }
+
+    if (parent.classList.value === 'item d-flex red') {
+      parent.insertBefore(createDeleteBtn(), e.target);
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (previous.classList.value === 'dynamicDeleteBtn') {
+        previous.remove();
+      }
+    }
+  }
+});
+
+document.getElementById('clearAllComp').addEventListener('click', () => {
+  const checked = document.querySelectorAll('.checked');
+  checked.forEach((task) => {
+    if (task.checked) {
+      task.parentElement.parentElement.classList.add('d-none');
+    }
+  });
+  if (list.length > 0) {
+    // eslint-disable-next-line eqeqeq
+    const trueFilter = list.filter((task) => Boolean(task.completed) == Boolean(false));
+    list = trueFilter;
   }
 });
