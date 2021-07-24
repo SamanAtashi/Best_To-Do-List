@@ -1,9 +1,10 @@
 import './style.css';
 import { dragFunction } from './dragDropSort.js';
 
-// eslint-disable-next-line prefer-const
-let list = [];
-let globalIndex = list.length + 1;
+// eslint-disable-next-line import/no-mutable-exports
+export let list = [];
+// eslint-disable-next-line import/no-mutable-exports
+export let globalIndex = list.length + 1;
 
 function buildElementandShow() {
   const getAdd = document.getElementById('getAdd'); // grab input text
@@ -168,6 +169,7 @@ document.addEventListener('click', (e) => {
     const currentKey = +e.target.previousSibling.firstChild.id.match(/[0-9]+/g)[0];
 
     // delete from list
+    // eslint-disable-next-line eqeqeq
     list = list.filter((task) => task.globalIndex != currentKey);
 
     // delete the whole element in HTML
