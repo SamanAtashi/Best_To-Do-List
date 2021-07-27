@@ -26,7 +26,7 @@ function buildElementandShow() {
     globalIndex = list.length + 1;
     // globalIndex = localStorage.length;
   }
-  createCheckBox.id = `item${globalIndex}`; // ? ===================
+  createCheckBox.id = `item${globalIndex}`;
 
   createCheckBox.classList.add('space-right');
   createCheckBox.classList.add('checked');
@@ -73,13 +73,13 @@ function storeLocally() {
 
 function checkboxUpdator(theItem) {
   const theId = parseInt(theItem.id.match(/\d+/g)[0], 10);
-  // todo====================================== update array
+  // update array
   if (list[theId - 1].completed === false) {
     list[theId - 1].completed = true;
   } else {
     list[theId - 1].completed = false;
   }
-  // todo====================================== update local storage
+  // update local storage
   localStorage.setItem(theId, JSON.stringify(list[theId - 1]));
 }
 
@@ -93,7 +93,6 @@ function createDeleteBtn() {
 }
 
 function updateLocalStorage() {
-  // console.log(globalIndex); // 2
   if (list.length > 0) {
     list.forEach((task) => {
       // eslint-disable-next-line prefer-const
@@ -105,7 +104,7 @@ function updateLocalStorage() {
   }
 }
 
-// Todo:------------------------------ start from scratch with NO LocalStorage
+// start from scratch with NO LocalStorage
 
 document.getElementById('getAdd').addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
@@ -192,7 +191,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Todo:------------------------------ start with LocalStorage
+// start with LocalStorage
 
 function buildElementandShow2(task) {
   const show = document.getElementById('show'); // grab ul
@@ -259,7 +258,7 @@ if (localStorage.length > 0) {
   }
 }
 
-// todo: ----------------- clear all compeleted btn
+// clear all compeleted btn
 
 document.getElementById('clearAllComp').addEventListener('click', () => {
   // delete from array
