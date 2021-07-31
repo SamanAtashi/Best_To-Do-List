@@ -1,4 +1,4 @@
-# Awesome_Books
+# To Do List web app
 
 > To Do List Application made with Javascript and webpack.
 
