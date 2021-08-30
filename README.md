@@ -10,7 +10,7 @@
 - Webpack
 
 ## Live Version
-[Click Me 👈](https://samanatashi.github.io/Best_To-Do-List/)
+[Click Me 👈](https://samanatashi.github.io/Best_To-Do-List/dist/)
 
 ## Installation
 
